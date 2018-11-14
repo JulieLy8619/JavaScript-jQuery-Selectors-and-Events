@@ -8,11 +8,11 @@ lab 2 for 301: using the provided JSON files to create a photo gallery. You will
 Number and name of feature: Feature 1, display images
 Julie drove, Jared guided
 
-Estimate of time needed to complete: 30 mins
+Estimate of time needed to complete: 60 mins
 
 Start time: 9:30
 
-Finish time: 10:00
+Finish time: 10:30
 
 Actual time needed to complete: _____
 
