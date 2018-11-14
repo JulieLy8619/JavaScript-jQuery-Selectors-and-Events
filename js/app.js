@@ -1,8 +1,7 @@
 'use strict';
 
+
 //Feature 1, display images
-
-
 //make a constructor funtion
 function Horns (obj) {
   this.url = obj.image_url;
@@ -24,8 +23,16 @@ Horns.prototype.render = function() {
   hornClone.find('p').text(this.description);
   hornClone.removeClass('clone');
   hornClone.attr('class', this.title);
-  console.log('end');
 }
+
+Horns.prototype.list = function () {
+  // console.log('in list prototype');
+  let filterList = $('select');
+  // $.each(Horns.allHornsArray, () => {
+  // filterList.append($('<option></option>').val(this.keyword).html(this.keyword))
+  //this isn't right because I do't want the keyword for each of the objects, I just need a list of the keywords and that is what will go into the options
+  // })
+};
 
 //get information from json and populate template, which also then renders to screen.
 Horns.readJson = () => {
@@ -35,11 +42,25 @@ Horns.readJson = () => {
         Horns.allHornsArray.push(new Horns(obj));
       })
     })
-    .then(Horns.loadHorns);
+    .then(Horns.loadHorns)
+    .then(Horns.populateForm)
 }
 
 Horns.loadHorns = () => {
   Horns.allHornsArray.forEach(horn => horn.render());
 }
+//feature 2: filter images
+Horns.populateForm= () => {
+  Horns.allHornsArray.forEach(horn => horn.list());
+}
+
+Horns.
 
 $(() => Horns.readJson());
+
+
+//populates the dropdownlist
+
+//clickhandler
+
+
