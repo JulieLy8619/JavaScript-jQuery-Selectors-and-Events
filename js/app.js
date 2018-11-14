@@ -11,6 +11,7 @@ function Horns (obj) {
   this.horn = obj.horns;
 }
 Horns.allHornsArray = [];
+Horns.listArray = [];
 
 Horns.prototype.render = function() {
 
@@ -25,12 +26,28 @@ Horns.prototype.render = function() {
   hornClone.attr('class', this.title);
 }
 
+
+
+// Horns.makeList = () => {
+//   if (Horns.listArray.includes(this.keyword) !== true) {
+//     Horns.listArray.push(this.keyword)
+//   }
+// }
+
+// Horns.allHornsArray.forEach(Horns.makeList(this.keyword));
+
+Horns.prototype.newList = function() {
+  if (!Horns.listArray.includes(this.keyword)) {
+    Horns.listArray.push(this);
+  }
+}
+
 Horns.prototype.list = function () {
   // console.log('in list prototype');
   let filterList = $('select');
   // $.each(Horns.allHornsArray, () => {
-  // filterList.append($('<option></option>').val(this.keyword).html(this.keyword))
-  //this isn't right because I do't want the keyword for each of the objects, I just need a list of the keywords and that is what will go into the options
+  filterList.append($('<option></option>').val(this.keyword).html(this.keyword))
+  // this isn't right because I do't want the keyword for each of the objects, I just need a list of the keywords and that is what will go into the options
   // })
 };
 
@@ -43,6 +60,7 @@ Horns.readJson = () => {
       })
     })
     .then(Horns.loadHorns)
+    .then(Horns.populateList)
     .then(Horns.populateForm)
 }
 
@@ -51,10 +69,12 @@ Horns.loadHorns = () => {
 }
 //feature 2: filter images
 Horns.populateForm= () => {
-  Horns.allHornsArray.forEach(horn => horn.list());
+  Horns.listArray.forEach( horn => horn.list());
 }
 
-Horns.
+Horns.populateList = () => {
+  Horns.allHornsArray.forEach(horn => horn.newList());
+}
 
 $(() => Horns.readJson());
 
