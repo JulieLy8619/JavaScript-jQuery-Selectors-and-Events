@@ -2,17 +2,16 @@
 
 //Feature 1, display images
 
-//Global variables
-allHornsArray = [];
 
 //make a constructor funtion
-function Horns (url, title, descrip, key, horn) {
-  this.url = url;
-  this.title = title;
-  this.description = descrip;
-  this.keyword = key;
-  this.horn = horn;
+function Horns (obj) {
+  this.url = obj.image_url;
+  this.title = obj.title;
+  this.description = obj.description;
+  this.keyword = obj.keyword;
+  this.horn = obj.horns;
 }
+Horns.allHornsArray = [];
 
 Horns.prototype.render = function() {
   console.log('in renders func');
@@ -27,23 +26,24 @@ Horns.prototype.render = function() {
   hornClone.find('img').attr('src', this.url);
   hornClone.find('p').text(this.description);
   hornClone.removeClass('clone');
-  hornClone.attr('class', this.title);   
+  hornClone.attr('class', this.title);
 }
-//get information from json and populate template, which also then renders to screen.
 
+//get information from json and populate template, which also then renders to screen.
 Horns.readJson = () => {
   console.log('in readJson func');
-  $.get('page-1.json', 'json');
+  $.get('data/page-1.json', 'json')
     .then(data => {
       data.forEach(obj => {
-        allHornsArray.push(new Horns(obj));
+        Horns.allHornsArray.push(new Horns(obj));
       })
     })
     .then(Horns.loadHorns);
 }
 
-loadHorns = () => {
+Horns.loadHorns = () => {
   console.log('in loadHorns func');
-  allHornsArray.forEach(horn => horns.render());
+  Horns.allHornsArray.forEach(horn => horn.render());
 }
 
+$(() => Horns.readJson());
