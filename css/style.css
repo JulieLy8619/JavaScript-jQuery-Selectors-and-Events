@@ -1,0 +1,36 @@
+html {
+  margin: 20px;
+  font-family: 'Roboto', sans-serif;
+}
+
+main {
+  margin: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; 
+  /* overflow: hidden;
+  display: inline-block;
+  float: left;
+  margin: 20px;
+  max-width: 350px; */
+}
+
+div{
+  margin: 30px;
+}
+
+img {
+  height: 200px;
+}
+
+h1 {
+  font-size: 180%;
+  text-align: center;
+}
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
