@@ -14,28 +14,31 @@ Start time: 9:30
 
 Finish time: 10:30
 
-Actual time needed to complete: _____
+Actual time needed to complete: 11:00 (90 mins)
 
 -------
 Number and name of feature: Feature #2: Filter images
-Jared drove, Julie guided
+we did not pair prog, we divided and conquored
+Julie took this
 
-Estimate of time needed to complete: _____
+Estimate of time needed to complete: 60 mins
 
-Start time: _____
+Start time: 11:07
 
-Finish time: _____
+Finish time: 12:07
 
 Actual time needed to complete: _____
 
 -------
-Number and name of feature: ________________________________
+Number and name of feature: Feature #3: Style the application
+we did not pair prog, we divided and conquored
+Jared took this
 
-Estimate of time needed to complete: _____
+Estimate of time needed to complete: 30 min
 
-Start time: _____
+Start time: 11:07
 
-Finish time: _____
+Finish time: 11:37
 
 Actual time needed to complete: _____
 
