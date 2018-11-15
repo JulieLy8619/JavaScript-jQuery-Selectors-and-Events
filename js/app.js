@@ -1,7 +1,5 @@
 'use strict';
 
-
-//Feature 1, display images
 //make a constructor funtion
 function Horns (obj) {
   this.url = obj.image_url;
@@ -11,10 +9,11 @@ function Horns (obj) {
   this.horn = obj.horns;
 }
 Horns.allHornsArray = [];
+Horns.listArrayKeys = [];
 Horns.listArray = [];
+Horns.filteredListArray = [];
 
 Horns.prototype.render = function() {
-
   $('main').append('<div class="clone"></div>')
   let hornClone = $('div[class="clone"]');
   let hornHtml = $('#photo-template').html();
@@ -26,30 +25,21 @@ Horns.prototype.render = function() {
   hornClone.attr('class', this.title);
 }
 
-
-
-// Horns.makeList = () => {
-//   if (Horns.listArray.includes(this.keyword) !== true) {
-//     Horns.listArray.push(this.keyword)
-//   }
-// }
-
-// Horns.allHornsArray.forEach(Horns.makeList(this.keyword));
-
-Horns.prototype.newList = function() {
-  if (!Horns.listArray.includes(this.keyword)) {
+Horns.prototype.makeList = function () {
+  if (!Horns.listArrayKeys.includes(this.keyword)) {
+    Horns.listArrayKeys.push(this.keyword);
     Horns.listArray.push(this);
   }
 }
 
 Horns.prototype.list = function () {
-  // console.log('in list prototype');
   let filterList = $('select');
-  // $.each(Horns.allHornsArray, () => {
   filterList.append($('<option></option>').val(this.keyword).html(this.keyword))
-  // this isn't right because I do't want the keyword for each of the objects, I just need a list of the keywords and that is what will go into the options
-  // })
 };
+
+Horns.prototype.clearImage = function (){
+  $('div').remove();
+}
 
 //get information from json and populate template, which also then renders to screen.
 Horns.readJson = () => {
@@ -67,13 +57,16 @@ Horns.readJson = () => {
 Horns.loadHorns = () => {
   Horns.allHornsArray.forEach(horn => horn.render());
 }
-//feature 2: filter images
+
 Horns.populateForm= () => {
   Horns.listArray.forEach( horn => horn.list());
 }
 
 Horns.populateList = () => {
-  Horns.allHornsArray.forEach(horn => horn.newList());
+  Horns.allHornsArray.forEach(horn => horn.makeList());
+}
+Horns.clearPage = () => {
+  Horns.allHornsArray.forEach(horn => horn.clearImage());
 }
 
 $(() => Horns.readJson());
@@ -84,3 +77,16 @@ $(() => Horns.readJson());
 //clickhandler
 
 
+$('select').on('change', function(event) {
+  //clear images
+  Horns.clearPage();
+  let getKey = event.target.value;
+  Horns.allHornsArray.forEach( hornObj => {
+    if (getKey === hornObj.keyword) {
+      // Horns.filteredListArray.push(hornObj);
+      hornObj.render();
+    }
+  })
+  // Horns.filteredListArray.forEach(horn => horn.render());
+
+});
