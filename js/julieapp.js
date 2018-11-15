@@ -68,23 +68,38 @@ Horns.populateList = () => {
 $(() => Horns.readJson());
 
 
-Horns.clickHandler = () => {
-  // console.log($('input:text')); //this logs a function and I still can't drill to val
-  // console.log(this.val); //i keep getting an error this doesn't work, "this" isn't a thing
+// Horns.clickHandler = (event) => {
+//   // console.log($('input:text')); //this logs a function and I still can't drill to val
+//   // console.log(this.val); //i keep getting an error this doesn't work, "this" isn't a thing
+//   // let getKey = $(this).id;
+//   let getKey = event;
+//   console.log('getkey ' + getKey);
+//   console.log(getKey === 'narwhal')
 
-  //right now this walks through both arrays and i need to get the value of the selection to place in the if and THEN this will work. otherwise this is just reorganizing the array by keytype
-  Horns.listArray.forEach( listObj => {
-    // console.log('listObj.keyword outside of if ' + listObj.keyword);
-    Horns.allHornsArray.forEach( hornObj => {
-      if (hornObj.keyword === listObj.keyword) {
-        // console.log('hornObj.keyword in if ' + hornObj.keyword);
-        Horns.filteredListArray.push(hornObj);
+//   //right now this walks through both arrays and i need to get the value of the selection to place in the if and THEN this will work. otherwise this is just reorganizing the array by keytype
+//   Horns.listArray.forEach( listObj => {
+//     // console.log('listObj.keyword outside of if ' + listObj.keyword);
+//     Horns.allHornsArray.forEach( hornObj => {
+//       if (hornObj.keyword === listObj.keyword) {
+//         // console.log('hornObj.keyword in if ' + hornObj.keyword);
+//         Horns.filteredListArray.push(hornObj);
 
-      }
-    })
-  })
-}
+//       }
+//     })
+//   })
+// }
 
 // $('select').change(Horns.clickHandler);
 
-$('select').on('change', Horns.clickHandler);
+// $('select').on('change', Horns.clickHandler(event));
+//why doesn't this work if I call a function, why do I have to do an annymous function to get the event information
+//did I miss how you pass in the event as the param, or how to note the param in arrow format?
+$('select').on('change', function(event) {
+  let getKey = event.target.value;
+  Horns.allHornsArray.forEach( hornObj => {
+    if (getKey === hornObj.keyword) {
+      Horns.filteredListArray.push(hornObj);
+    }
+  })
+
+});
