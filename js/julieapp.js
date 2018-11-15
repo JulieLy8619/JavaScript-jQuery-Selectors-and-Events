@@ -1,7 +1,5 @@
 'use strict';
 
-
-//Feature 1, display images
 //make a constructor funtion
 function Horns (obj) {
   this.url = obj.image_url;
@@ -13,6 +11,7 @@ function Horns (obj) {
 Horns.allHornsArray = [];
 Horns.listArrayKeys = [];
 Horns.listArray = [];
+Horns.filteredListArray = [];
 
 Horns.prototype.render = function() {
   $('main').append('<div class="clone"></div>')
@@ -27,10 +26,7 @@ Horns.prototype.render = function() {
 }
 
 Horns.prototype.makeList = function () {
-  // console.log('Horns.listArray ' + Horns.listArray);
-  // console.log('this.keyword ' + this.keyword);
   if (!Horns.listArrayKeys.includes(this.keyword)) {
-    // console.log('in makelist');
     Horns.listArrayKeys.push(this.keyword);
     Horns.listArray.push(this);
   }
@@ -40,6 +36,9 @@ Horns.prototype.list = function () {
   let filterList = $('select');
   filterList.append($('<option></option>').val(this.keyword).html(this.keyword))
 };
+
+
+
 
 //get information from json and populate template, which also then renders to screen.
 Horns.readJson = () => {
@@ -69,12 +68,23 @@ Horns.populateList = () => {
 $(() => Horns.readJson());
 
 
-//clickhandler
-Horns.filterHandler = () => {
-  // console.log('in handler');
+Horns.clickHandler = () => {
+  // console.log($('input:text')); //this logs a function and I still can't drill to val
+  // console.log(this.val); //i keep getting an error this doesn't work, "this" isn't a thing
+
+  //right now this walks through both arrays and i need to get the value of the selection to place in the if and THEN this will work. otherwise this is just reorganizing the array by keytype
+  Horns.listArray.forEach( listObj => {
+    // console.log('listObj.keyword outside of if ' + listObj.keyword);
+    Horns.allHornsArray.forEach( hornObj => {
+      if (hornObj.keyword === listObj.keyword) {
+        // console.log('hornObj.keyword in if ' + hornObj.keyword);
+        Horns.filteredListArray.push(hornObj);
+
+      }
+    })
+  })
 }
 
-$('select').change(Horns.filterHandler);
+// $('select').change(Horns.clickHandler);
 
-
-
+$('select').on('change', Horns.clickHandler);
