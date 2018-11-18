@@ -1,30 +1,39 @@
-html {
-  margin: 20px;
+* {
   font-family: 'Roboto', sans-serif;
 }
-
-main {
-  margin: 30px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr; 
-  /* overflow: hidden;
-  display: inline-block;
-  float: left;
+select {
+  margin: 0 15% 40px;
+}
+body {
   margin: 20px;
-  max-width: 350px; */
+  background: whitesmoke;
 }
-
-div{
-  margin: 30px;
-}
-
-img {
-  height: 200px;
+#photo-location {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 h1 {
-  font-size: 180%;
   text-align: center;
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+div{
+  border-radius: 6px;
+  margin: 2%;
+  width: 240px;
+  height: 240px;
+  background: gainsboro;
+  text-align: center;
+  padding: 10px;
+}
+
+img {
+  max-width: 180px;
+  max-height: 180px;
+  margin-top: 20px;
 }
 
 footer {
