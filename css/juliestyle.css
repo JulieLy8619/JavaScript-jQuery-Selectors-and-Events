@@ -1,0 +1,73 @@
+html {
+  width: 960px;
+  margin-left:auto;
+  margin-right:auto;
+  font-family: 'Roboto', sans-serif;
+}
+body {
+  background: rgb(92, 155, 155);
+}
+
+div{
+  width: 290px;
+  height: 290px;
+  float: left;
+  margin: 5px;
+  border: 3px solid rgb(30, 4, 102);
+  border-radius: 10px;
+  padding-top: 2%;
+  padding-left: 1%;
+  background: rgb(3, 100, 117);
+}
+h2 {
+  width: 100%;
+  height: 27px;
+  overflow: hidden;
+  text-align: center;
+  font-size: 18px;
+  font-family: cursive;
+}
+
+p {
+  width: 225px;
+  height: 50px;
+  text-align: center; 
+  margin-left: auto;
+  margin-right: auto;
+  overflow: auto;
+}
+
+img {
+  width: 75%;
+  height:75%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#photo-template {
+  width: 960px;
+  height: 1px;
+}
+
+main {
+  width: 960px;
+}
+
+h1 {
+  font-size: 180%;
+  text-align: center;
+}
+
+span {
+  width: 100%;
+}
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  
+} 
