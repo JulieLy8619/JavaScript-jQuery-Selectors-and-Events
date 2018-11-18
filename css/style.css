@@ -6,7 +6,7 @@ html {
 main {
   margin: 30px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr; 
+  grid-template-columns: 3fr 3fr 3fr; 
   /* overflow: hidden;
   display: inline-block;
   float: left;

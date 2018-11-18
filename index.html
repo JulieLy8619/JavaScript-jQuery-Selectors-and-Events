@@ -8,6 +8,13 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" href="css\reset.css" type= "text/css">
     <link rel="stylesheet" href="css\style.css" type= "text/css">
+    <script id="photo-template" type="text/x-handlebars-template">
+      <div>
+        <h2>{{title}}</h2>
+        <img src="{{url}}">
+        <p>{{discription}}</p>
+      </div>
+    </script>
   </head>
   <body>
     <header>
@@ -17,16 +24,14 @@
       </select>
     </header>
     <main>
-      <section id="photo-template">
-        <h2></h2>
-        <img src="" alt="">
-        <p></p>
+      <section id="photo-location">
       </section>
     </main>
     <footer>
       &copy; 2018 Code Fellows
     </footer>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.js"></script>
     <script src= "js/app.js"></script>
   </body>
 </html>

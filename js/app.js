@@ -13,17 +13,24 @@ Horns.listArrayKeys = [];
 Horns.listArray = [];
 Horns.filteredListArray = [];
 
+// Horns.prototype.render = function() {
+//   $('main').append('<div class="clone"></div>')
+//   let hornClone = $('div[class="clone"]');
+//   let hornHtml = $('#photo-template').html();
+//   hornClone.html(hornHtml);
+//   hornClone.find('h2').text(this.title);
+//   hornClone.find('img').attr('src', this.url);
+//   hornClone.find('p').text(this.description);
+//   hornClone.removeClass('clone');
+//   hornClone.attr('class', this.title);
+// }
+
+
 Horns.prototype.render = function() {
-  $('main').append('<div class="clone"></div>')
-  let hornClone = $('div[class="clone"]');
-  let hornHtml = $('#photo-template').html();
-  hornClone.html(hornHtml);
-  hornClone.find('h2').text(this.title);
-  hornClone.find('img').attr('src', this.url);
-  hornClone.find('p').text(this.description);
-  hornClone.removeClass('clone');
-  hornClone.attr('class', this.title);
-}
+  const source = $('#photo-template').html();
+  const template = Handlebars.compile(source);
+  return template(this);
+};
 
 Horns.prototype.makeList = function () {
   if (!Horns.listArrayKeys.includes(this.keyword)) {
@@ -55,8 +62,10 @@ Horns.readJson = () => {
 }
 
 Horns.loadHorns = () => {
-  Horns.allHornsArray.forEach(horn => horn.render());
-}
+  Horns.allHornsArray.forEach(horn => {
+    $('#photo-location').append(horn.render());
+  })
+};
 
 Horns.populateForm= () => {
   Horns.listArray.forEach( horn => horn.list());
@@ -80,13 +89,15 @@ $(() => Horns.readJson());
 $('select').on('change', function(event) {
   //clear images
   Horns.clearPage();
+  Horns.filteredListArray = [];
   let getKey = event.target.value;
   Horns.allHornsArray.forEach( hornObj => {
     if (getKey === hornObj.keyword) {
-      // Horns.filteredListArray.push(hornObj);
+      Horns.filteredListArray.push(hornObj);
       hornObj.render();
     }
   })
-  // Horns.filteredListArray.forEach(horn => horn.render());
-
-});
+  Horns.filteredListArray.forEach(horn => {
+    $('#photo-location').append(horn.render());
+  })
+})
