@@ -8,10 +8,27 @@ body {
   margin: 20px;
   background: whitesmoke;
 }
-#photo-location {
+.photo-location {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+#pages {
+  float: right;
+  margin-right: 15%;
+}
+
+ul {
+  font-size: 20px;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 10px;
+}
+
+li {
+  list-style-type: none;
+  margin-right: 1em;
 }
 
 h1 {
@@ -20,7 +37,7 @@ h1 {
   margin-bottom: 20px;
 }
 
-div{
+#horn {
   border-radius: 6px;
   margin: 2%;
   width: 240px;

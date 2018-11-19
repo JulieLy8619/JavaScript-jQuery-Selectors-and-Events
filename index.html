@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css\reset.css" type= "text/css">
     <link rel="stylesheet" href="css\style.css" type= "text/css">
     <script id="photo-template" type="text/x-handlebars-template">
-      <div>
+      <div id="horn">
         <h2>{{title}}</h2>
         <img src="{{url}}">
         <p>{{discription}}</p>
@@ -17,12 +17,23 @@
   <body>
     <header>
       <h1>The Gallery of Horns</h1>
-      <select>
+      <section id="pages">
+          <ul>
+              <li><a href="#" data-tab="page1">Page 1</a></li>
+              <li><a href="#" data-tab="page2">Page 2</a></li>
+          </ul>
+      </section>
+        <select name="page1">
         <option value="default">Filter by Keyword</option>
+      </select>
+      <select name="page2">
+          <option value="default">Filter by Keyword</option>
       </select>
     </header>
     <main>
-      <section id="photo-location">
+      <section id="page1" class="photo-location">
+      </section>
+      <section id="page2" class="photo-location">
       </section>
     </main>
     <footer>
