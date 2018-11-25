@@ -2,6 +2,8 @@
 
 lab 2 for 301: using the provided JSON files to create a photo gallery. You will style it using floats.
 
+help with sorting from http://www.javascriptkit.com/javatutors/arraysort2.shtml
+
 ## Pair programmed: Julie Ly & Jared Pattison
 
 -------
@@ -86,13 +88,13 @@ Actual time needed to complete:
 
 Number and name of feature: Feature 4: Sort the images
 
-Estimate of time needed to complete: 
+Estimate of time needed to complete: 2 hr
 
-Start time: 
+Start time: 6:00
 
-Finish time: 
+Finish time: 8:00
 
-Actual time needed to complete: 
+Actual time needed to complete: 2hr
 
 -------
 
